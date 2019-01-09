@@ -24,14 +24,14 @@ public class NoteService {
     }
 
     public void save(NoteEntry note) {
-        new saveAsyncTask(noteDao).execute(note);
+        new SaveAsyncTask(noteDao).execute(note);
     }
 
-    private static class saveAsyncTask extends AsyncTask<NoteEntry, Void, Void> {
+    private static class SaveAsyncTask extends AsyncTask<NoteEntry, Void, Void> {
 
         private NoteDao noteDao;
 
-        saveAsyncTask(NoteDao dao) {
+        SaveAsyncTask(NoteDao dao) {
             noteDao = dao;
         }
 

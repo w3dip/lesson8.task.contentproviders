@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ru.sberbank.lesson8.task.contentproviders">
 
+    <permission android:name="ru.sberbank.lesson8.task.contentproviders.READ" android:protectionLevel="normal"/>
+    <permission android:name="ru.sberbank.lesson8.task.contentproviders.WRITE" android:protectionLevel="normal"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -19,5 +22,12 @@
         <activity android:name=".CreateNoteActivity" />
         <activity android:name=".EditNoteActivity" />
         <activity android:name=".SettingsActivity" />
+
+        <provider
+            android:name=".provider.NoteContentProvider"
+            android:authorities="ru.sberbank.lesson8.task.contentproviders.provider"
+            android:exported="true"
+            android:readPermission="ru.sberbank.lesson8.task.contentproviders.READ"
+            android:writePermission="ru.sberbank.lesson8.task.contentproviders.WRITE"/>
     </application>
 </manifest>
